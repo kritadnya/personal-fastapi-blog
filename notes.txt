@@ -1,0 +1,26 @@
+Tutorial 1:
+Understand why FastAPI
+
+Tutorial 2:
+we make use of templates in fastapi
+Templates allow us to serve up html pages to users while still maintaning our json end points for the backend api. (Find out what that means )
+We set u jinja2 templates, pass data to templates, use jinja2 syntax for loops and conditionals, implement template inheritence with layout.html, add bootstrap for styling and static pages for css.  
+Why templates are important? We cant always return a python string, sometimes we may want to return entire html pages with headers, navigation etc. (Find out more)
+! Make sure to go through the code in layout.html and home.html
+What is webmanifest and understand the static folder use 
+Need to understand the documentation, the routes and the functions ie the flow
+
+Tutorial 3
+We learn about URL parameters and how we can use them to grab specific resources from our data eg : instead of returning all of our posts at once, we can use a path parameter to grab a single post.  
+Learn the significance for "url_for"
+Learn about request response GET POST
+
+Tutorial 4
+Using Pydantic Schemas to validate our API request and responses in FastAPI.
+Using Pydantic we create schema files for request and response models
+Pydantic is a data validation library that uses Python type hints- enforces them at run time and gives detailed error messages. It comes with FASTai as a dependency. 
+
+from pydantic import BaseModel, ConfigDict, Field
+BaseModel is the base class that all of our models inherit from. Field lets us add constraints. ConfigDict is the modern way to configure models.
+
+Learn about all the status codes 
