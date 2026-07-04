@@ -1,5 +1,6 @@
 # Virtual environment
 venv/
+.venv/
 
 # Python cache
 __pycache__/
@@ -246,5 +247,9 @@ pyrightconfig.json
 # Ignore all local history of files
 .history
 .ionide
+
+# Personal folders
+old_files/
+text_files/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,visualstudiocode,dotenv

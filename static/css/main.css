@@ -10,10 +10,10 @@
   --color-bg-content: #ffffff;
   --color-text-primary: #333333;
   --color-text-heading: #444444;
-  --color-steel: #527c9f;
+  --color-steel:#faa0d9;
   --color-nav-link: #cbd5db;
   --color-nav-link-hover: #ffffff;
-  --color-link-hover: #428bca;
+  --color-link-hover: #f187f7;
   --color-border: #dddddd;
   --color-border-light: #e3e3e3;
 
@@ -62,7 +62,7 @@ button:focus-visible {
 
 /* Headers and Navigation */
 .bg-steel {
-  background-color: var(--color-steel);
+  background-color: #800252 !important;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -158,10 +158,10 @@ a.article-title:focus {
 
 /* Custom Button Colors - Light Mode */
 .btn-outline-primary {
-  --bs-btn-color: #527c9f;
-  --bs-btn-border-color: #527c9f;
+  --bs-btn-color: #f48ff0;
+  --bs-btn-border-color: #f48ff0;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #466a87;
+  --bs-btn-hover-bg: #f48ff0;
   --bs-btn-hover-border-color: #3f6179;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #3f6179;
@@ -192,14 +192,14 @@ a.article-title:focus {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #527c9f;
-  --bs-btn-border-color: #527c9f;
+  --bs-btn-bg: #f48ff0;
+  --bs-btn-border-color: #f48ff0;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #466a87;
-  --bs-btn-hover-border-color: #3f6179;
+  --bs-btn-hover-bg: #f48ff0;
+  --bs-btn-hover-border-color: #f48ff0;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #3f6179;
-  --bs-btn-active-border-color: #3a5b72;
+  --bs-btn-active-bg: #f48ff0;
+  --bs-btn-active-border-color: #f48ff0;
 }
 
 .btn-danger {
@@ -292,4 +292,27 @@ a.article-title:focus {
 .modal-header.bg-success .modal-title,
 .modal-header.bg-danger .modal-title {
   color: #ffffff !important;
+}
+
+
+.navbar {
+    position: relative;
+    overflow: visible;
+    padding: 0.5rem 1rem;
+}
+.navbar {
+    position: relative;
+}
+
+#navbar-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.navbar > .container {
+    position: relative;
+    z-index: 1;
 }

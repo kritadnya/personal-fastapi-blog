@@ -1,20 +1,26 @@
-# all the db setup code 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.orm import DeclarativeBase
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./blog.db"
 
-engine = create_engine(
+# db url here tells sqlalchemy where to connect 
+SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./blog.db"
+
+engine = create_async_engine(
     SQLALCHEMY_DATABASE_URL,
     connect_args={"check_same_thread": False},
 
 )
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+AsyncSessionLocal = async_sessionmaker(
+    engine,
+    class_=AsyncSession,
+    expire_on_commit=False,
+)
 
 class Base(DeclarativeBase):
     pass
 
-def get_db():
-    with SessionLocal() as db:
-        yield db
+# provides sessions to our routes, using the "with" it acts like a context manager  ensures cleanup even if failure occurs 
+async def get_db():
+    async with AsyncSessionLocal() as session:
+        yield session

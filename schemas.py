@@ -1,45 +1,51 @@
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field , EmailStr
 
 
-# create our base schema with the fields shared between creating and returning post 
+from pydantic import BaseModel, ConfigDict, Field, EmailStr
+
+
+# pydantic schemas help us determine what we accept and return from api
 
 class UserBase(BaseModel):
-    username:str = Field(min_length=1, max_length=50)
+    username: str = Field(min_length=1, max_length=50)
     email: EmailStr = Field(max_length=120)
 
-# what we expect when we create a user
 class UserCreate(UserBase):
     pass
 
-# 
 class UserResponse(UserBase):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True) # True so that pydantic can read from sqlalchemy model
+    id: int
+    image_file : str | None
+    image_path: str 
 
-    id:int
-    image_file: str| None
-    image_path: str
+class UserUpdate(BaseModel):
+    username: str | None = Field(default=None, min_length=1, max_length=50)
+    email: EmailStr | None = Field(default=None, max_length=120)
+    image_file: str | None = Field(default=None, min_length=1, max_length=200)
 
-# this class is going to be shared between both creating and returning 
-# so when we are creating and returning a post we want title content and the author name 
-# pydantic uses this type hints to validate the data during runtime 
+
+
+
+# fields shared between creating and returning posts
 class PostBase(BaseModel):
-    title: str = Field(min_length=1, max_length=100 )
-    content: str = Field(min_length=1 )
-    # author: str= Field(min_length=1, max_length=50)
+    title: str = Field(min_length=1, max_length=100)
+    content: str = Field(min_length=1)
+    
 
-# make a post create schema; this defines what we accept when creating a post
+# what we accept when we create a new post
 class PostCreate(PostBase):
-    user_id: int # TEMPORARY
+    user_id: int
+
+class PostUpdate(BaseModel):
+    title: str | None = Field(default = None, min_length=1, max_length=100)
+    content: str | None = Field(default = None, min_length=1)
+  
 
 class PostResponse(PostBase):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True) # can read data from attributes, objects, database tables not just limited to dictionaries 
 
     id: int
-    user_id : int
-
+    user_id: int
     date_posted: datetime
     author: UserResponse
-
-
-# these schemas defien what we accept and return through our APIs
