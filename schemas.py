@@ -11,20 +11,29 @@ class UserBase(BaseModel):
     email: EmailStr = Field(max_length=120)
 
 class UserCreate(UserBase):
-    pass
+    password: str = Field(min_length=8)
 
-class UserResponse(UserBase):
+
+# separating User Response : UserPrivate and UserPublic, email of the user will not be exposed this way thus improving privacy 
+class UserPublic(BaseModel):
     model_config = ConfigDict(from_attributes=True) # True so that pydantic can read from sqlalchemy model
     id: int
+    username: str
     image_file : str | None
     image_path: str 
+
+class UserPrivate(UserPublic):
+    email: EmailStr
 
 class UserUpdate(BaseModel):
     username: str | None = Field(default=None, min_length=1, max_length=50)
     email: EmailStr | None = Field(default=None, max_length=120)
     image_file: str | None = Field(default=None, min_length=1, max_length=200)
 
-
+# token schema for login responses
+class Token(BaseModel): 
+    access_token: str
+    token_type: str
 
 
 # fields shared between creating and returning posts
@@ -48,4 +57,4 @@ class PostResponse(PostBase):
     id: int
     user_id: int
     date_posted: datetime
-    author: UserResponse
+    author: UserPublic
