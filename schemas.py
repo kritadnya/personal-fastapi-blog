@@ -44,7 +44,8 @@ class PostBase(BaseModel):
 
 # what we accept when we create a new post
 class PostCreate(PostBase):
-    user_id: int
+    # user_id: int; the user_id is no longer part of what the client sends, this makes it more secure because the client cant claim to be someone else anymore; the server determines the user from the token 
+    pass
 
 class PostUpdate(BaseModel):
     title: str | None = Field(default = None, min_length=1, max_length=100)
