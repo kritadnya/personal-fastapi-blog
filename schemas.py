@@ -1,61 +1,66 @@
 from datetime import datetime
 
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
-from pydantic import BaseModel, ConfigDict, Field, EmailStr
-
-
-# pydantic schemas help us determine what we accept and return from api
 
 class UserBase(BaseModel):
     username: str = Field(min_length=1, max_length=50)
     email: EmailStr = Field(max_length=120)
 
+
 class UserCreate(UserBase):
     password: str = Field(min_length=8)
 
 
-# separating User Response : UserPrivate and UserPublic, email of the user will not be exposed this way thus improving privacy 
 class UserPublic(BaseModel):
-    model_config = ConfigDict(from_attributes=True) # True so that pydantic can read from sqlalchemy model
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     username: str
-    image_file : str | None
-    image_path: str 
+    image_file: str | None
+    image_path: str
+
 
 class UserPrivate(UserPublic):
     email: EmailStr
 
+
 class UserUpdate(BaseModel):
     username: str | None = Field(default=None, min_length=1, max_length=50)
     email: EmailStr | None = Field(default=None, max_length=120)
-    
 
-# token schema for login responses
-class Token(BaseModel): 
+
+class Token(BaseModel):
     access_token: str
     token_type: str
 
 
-# fields shared between creating and returning posts
 class PostBase(BaseModel):
     title: str = Field(min_length=1, max_length=100)
     content: str = Field(min_length=1)
-    
 
-# what we accept when we create a new post
+
 class PostCreate(PostBase):
-    # user_id: int; the user_id is no longer part of what the client sends, this makes it more secure because the client cant claim to be someone else anymore; the server determines the user from the token 
     pass
 
+
 class PostUpdate(BaseModel):
-    title: str | None = Field(default = None, min_length=1, max_length=100)
-    content: str | None = Field(default = None, min_length=1)
-  
+    title: str | None = Field(default=None, min_length=1, max_length=100)
+    content: str | None = Field(default=None, min_length=1)
+
 
 class PostResponse(PostBase):
-    model_config = ConfigDict(from_attributes=True) # can read data from attributes, objects, database tables not just limited to dictionaries 
+    model_config = ConfigDict(from_attributes=True)
 
     id: int
     user_id: int
     date_posted: datetime
     author: UserPublic
+
+
+class PaginatedPostsResponse(BaseModel):
+    posts: list[PostResponse]
+    total: int
+    skip: int
+    limit: int
+    has_more: bool
