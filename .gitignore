@@ -13,6 +13,7 @@ __pycache__/
 .vscode/
 
 static/profile_pics/
+static/icons/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos,visualstudiocode,dotenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,visualstudiocode,dotenv
