@@ -17,7 +17,7 @@
 #         "username": "Krita",
 #         "email": "Krita@gmail.com",
 #         "password": "TestPassword1!",
-#         # "image": "corey.png",
+#         # "image": "k.png",
 #     },
 #     {
 #         "username": "DefaultDude",
@@ -57,7 +57,7 @@
 #         "content": "FastAPI has completely changed how I build APIs. The automatic documentation, type hints, and async support make development so much faster. Plus, the performance is incredible!",
 #     },
 #     {
-#         "title": "Corey Schafer Has the Best YouTube Tutorials!",
+#         "title": "k  Has the Best YouTube Tutorials!",
 #         "content": "This was written by a viewer and definitely not by me... I mean him. Totally not written by him, but by me... a real viewer. Seriously, check out his channel for amazing Python content.",
 #     },
 #     {
@@ -65,7 +65,7 @@
 #         "content": "I've been struggling with async programming for months, but FastAPI's approach finally made it click. Using 'async def' for endpoints and 'await' for database calls just makes sense.",
 #     },
 #     {
-#         "title": "Schafer? I Barely Know Her!",
+#         "title": "k? I Barely Know Her!",
 #         "content": "Is anyone actually reading these blog posts? Do they really need to say anything? I can keep going all day. At least AI can... Claude, keep going, please.",
 #     },
 #     {
@@ -114,7 +114,7 @@
 #     },
 #     {
 #         "title": "Path Parameters vs Query Parameters",
-#         "content": "Use path parameters for required resource identifiers (/users/123) and query parameters for optional filters (/posts?author=corey&limit=10). FastAPI handles both beautifully with automatic validation.",
+#         "content": "Use path parameters for required resource identifiers (/users/123) and query parameters for optional filters (/posts?author=key&limit=10). FastAPI handles both beautifully with automatic validation.",
 #     },
 #     {
 #         "title": "Error Handling Done Right",
