@@ -24,6 +24,11 @@ async def send_email(
     if html_content:
         message.add_alternative(html_content, subtype="html")
 
+    print(f"Host: {settings.mail_server}") 
+    print(f"Port: {settings.mail_port}") 
+    print(f"TLS: {settings.mail_use_tls}") 
+    print(f"User: {settings.mail_username}")
+
     await aiosmtplib.send(
         message,
         hostname=settings.mail_server,
@@ -31,6 +36,7 @@ async def send_email(
         username=settings.mail_username or None,
         password=settings.mail_password.get_secret_value() or None,
         start_tls=settings.mail_use_tls,
+        # use_tls=False,
     )
 
 
