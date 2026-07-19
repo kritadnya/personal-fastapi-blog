@@ -13,14 +13,15 @@
                     <div class="flex-grow-1">
                         <div class="article-metadata mb-2">
                             <a class="me-2"
-                               href="{{ url_for("user_posts", user_id=post.author.id) }}">{{ post.author.username }}</a>
-                            <small class="text-body-secondary">{{ post.date_posted.strftime("%B %d, %Y") }}</small>
+                               href="{{ url_for('user_posts', user_id=post.author.id) }}">{{ post.author.username }}</a>
+                            <small class="text-body-secondary">{{ post.date_posted.strftime("%B %d, %Y at %I:%M %p") }}</small>
                         </div>
                         <h2>
                             <a class="article-title"
-                               href="{{ url_for("post_page", post_id=post.id) }}">{{ post.title }}</a>
+                               href="{{ url_for('post_page', post_id=post.id) }}">{{ post.title }}</a>
                         </h2>
-                        <p class="article-content">{{ post.content }}</p>
+                        <!-- <p class="article-content">{{ post.content }}</p> -->
+                         <p class="article-content article-preview">{{ post.content }}</p>
                     </div>
                 </div>
             </article>
@@ -58,7 +59,7 @@
             <h2>
               <a class="article-title" href="/posts/${post.id}">${escapeHtml(post.title)}</a>
             </h2>
-            <p class="article-content">${escapeHtml(post.content)}</p>
+            <p class="article-content article-preview">${escapeHtml(post.content)}</p>
           </div>
         </div>
       </article>

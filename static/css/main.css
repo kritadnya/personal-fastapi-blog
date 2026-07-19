@@ -294,6 +294,12 @@ a.article-title:focus {
   color: #ffffff !important;
 }
 
+.article-preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
 
 .navbar {
     position: relative;
