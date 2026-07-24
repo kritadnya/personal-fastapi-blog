@@ -58,24 +58,24 @@ FASTAPI_BLOG/
 ```
 
 ```text
-# 🚀 FastAPI Blog Platform
+🚀 FastAPI Blog Platform
 
 A modern full-stack blogging platform built with **FastAPI** that allows users to register, create blog posts, upload profile pictures, like posts, and manage their accounts through a clean and responsive web interface.
 
-## ✨ Features
+✨ Features
 
-* 🔐 User registration and login with JWT authentication
-* 📝 Create, edit, and delete blog posts
-* ❤️ Like blog posts
-* 👤 User profiles with profile picture uploads
-* 🖼️ Image processing using Pillow
-* 📧 Password reset via email
-* 📄 Paginated home page
-* 🕒 Post timestamps and author pages
-* 🎨 Responsive UI built with Jinja2, HTML, CSS, and JavaScript
-* 🗄️ Database migrations with Alembic
+1 🔐 User registration and login with JWT authentication
+2 📝 Create, edit, and delete blog posts
+3 ❤️ Like blog posts
+4 👤 User profiles with profile picture uploads
+5 🖼️ Image processing using Pillow
+6 📧 Password reset via email
+7 📄 Paginated home page
+8 🕒 Post timestamps and author pages
+9 🎨 Responsive UI built with Jinja2, HTML, CSS, and JavaScript
+10 🗄️ Database migrations with Alembic
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
 
 | Category            | Technologies                    |
 | ------------------- | ------------------------------- |
@@ -87,11 +87,8 @@ A modern full-stack blogging platform built with **FastAPI** that allows users t
 | **Email**           | SMTP                            |
 | **Version Control** | Git, GitHub                     |
 
-## 📂 Project Structure
 
-
-
-## 🚀 Getting Started
+🚀 Getting Started
 
 ```bash
 git clone https://github.com/your-username/fastapi-blog.git
